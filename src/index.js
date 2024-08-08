@@ -44,21 +44,19 @@ function decode(expr) {
             result += '.';
            } else if (String(expr[i]) + String(expr[i+1]) === '11') {
             result += '-';  
-           } else {
+           } else if (String(expr[i]) + String(expr[i+1]) === '00'){
             result += ' ';
+           } else {
+              result += ' ';
            }
     }
     let string = '';
     result.split(" ").forEach(item => {
-        if(item === ""){
-            string += " "
-        } else {
             if(MORSE_TABLE[item]){
                 string += MORSE_TABLE[item];
             }
-        }
     });
-    return (string.split("  ")).join(" ");
+    return string;
 }
 
 module.exports = {
