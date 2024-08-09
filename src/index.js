@@ -79,11 +79,12 @@ const MORSE_TABLE_NUMBERS = {
 
 function decode(expr) {
     let result = [];
+    let letter = '';
     for (let i = 0; i < expr.length; i += 10) {
-        let letter = expr.substring(i, i + 10);
+        letter = expr.substring(i, i + 10);
         result.push(MORSE_TABLE_NUMBERS[letter]);
     }
-    return result.join('');
+    return result.join(',');
 }
 
 module.exports = {
