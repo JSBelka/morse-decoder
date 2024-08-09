@@ -82,7 +82,7 @@ function decode(expr) {
     let letter = '';
     for (let i = 0; i < expr.length; i += 10) {
         letter = expr.substring(i, i + 10);
-        result.push(MORSE_TABLE_NUMBERS[letter]);
+        result.push(MORSE_TABLE_NUMBERS[letter.trim()]);
     }
     return result.join(',');
 }
