@@ -82,9 +82,15 @@ function decode(expr) {
     let letter = '';
     for (let i = 0; i < expr.length; i += 10) {
         letter = expr.substring(i, i + 10);
-        result.push(MORSE_TABLE_NUMBERS[letter.trim()]);
+        result.push(letter);
     }
-    return result.join(',');
+    let string = ';'
+    result.map(item => {
+        if(MORSE_TABLE_NUMBERS[item]) {
+            string += MORSE_TABLE_NUMBERS[item]
+        }
+    });
+    return string;
 }
 
 module.exports = {
